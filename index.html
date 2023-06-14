@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relationship Age</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    /* Styles from previous code */
+    /* ... */
+
+    /* Additional Styles for Glassmorphism Effect */
+    body {
+      background: url('YOUR_BACKGROUND_IMAGE_URL') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: poppins, sans-serif;
+    }
+
+    .container {
+      /* ... */
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    /* Responsive Styles */
+    /* ... */
+
+  </style>
+  <script>
+    // Function from previous code
+
+  function calculateAge() {
+    var startDate = new Date('October 27, 2022'); // Replace 'Start Date' with the actual start date of your relationship
+    var currentDate = new Date();
+
+    var age = {
+      years: 0,
+      months: 0,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0
+    };
+
+    var timeDiff = currentDate - startDate;
+
+    // Calculate years
+    age.years = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25));
+
+    // Calculate months
+    var yearsInMilliseconds = age.years * (1000 * 60 * 60 * 24 * 365.25);
+    var remainingTimeDiff = timeDiff - yearsInMilliseconds;
+    age.months = Math.floor(remainingTimeDiff / (1000 * 60 * 60 * 24 * 30.44));
+
+    // Calculate days
+    var monthsInMilliseconds = age.months * (1000 * 60 * 60 * 24 * 30.44);
+    remainingTimeDiff -= monthsInMilliseconds;
+    age.days = Math.floor(remainingTimeDiff / (1000 * 60 * 60 * 24));
+    
+    // Calculate hours, minutes, and seconds
+    var daysInMilliseconds = age.days * (1000 * 60 * 60 * 24);
+    remainingTimeDiff -= daysInMilliseconds;
+    age.hours = Math.floor(remainingTimeDiff / (1000 * 60 * 60));
+    
+    var hoursInMilliseconds = age.hours * (1000 * 60 * 60);
+    remainingTimeDiff -= hoursInMilliseconds;
+    age.minutes = Math.floor(remainingTimeDiff / (1000 * 60));
+    
+    var minutesInMilliseconds = age.minutes * (1000 * 60);
+    remainingTimeDiff -= minutesInMilliseconds;
+    age.seconds = Math.floor(remainingTimeDiff / 1000);
+
+    // Display age
+    var timerElement = document.getElementById("timer");
+    timerElement.innerHTML = `
+      <span><b>${age.years}</b></span> years,
+      <span><b>${age.months}</b></span> months,
+      <span><b>${age.days}</b></span> days,
+      <span><b>${age.hours}</b></span> hours,
+      <span><b>${age.minutes}</b></span> minutes,
+      <span><b>${age.seconds}</b></span> seconds
+    `;
+  }
+
+  setInterval(calculateAge, 1000); // Update every second
+
+
+
+    // Add Event Listener to Load Background Image URL Dynamically
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.style.backgroundImage = `url('${"https://ryannithusha.github.io/000.png"}')`;
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Relationship Age</h1>
+    <div class="timer" id="timer"></div>
+    <p>Counting the wonderful moments between Ryan and Nithusha</p>
+    <p style="font-family:sans-serif;">I <b>love</b> you <b>Nithusha</b></p>
+  </div>
+</body>
+</html>
